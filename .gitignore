@@ -1,0 +1,52 @@
+# Entorno virtual y dependencias
+.venv/
+venv/
+env/
+ENV/
+dist/
+build/
+*.egg-info/
+
+# Archivos de caché de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Modelos pesados y pesos de redes neuronales (YOLO)
+*.pt
+*.onnx
+assets/models/*.pkl
+assets/models/*.task
+
+# Datasets y archivos CSV grandes
+dataset/
+dataset_caracteristicas.csv
+
+# Archivos de configuración local del editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Archivos temporales y compilados de LaTeX (para mantener el repositorio limpio)
+INFORME-PROYECTO-PEVICO/*.aux
+INFORME-PROYECTO-PEVICO/*.log
+INFORME-PROYECTO-PEVICO/*.synctex.gz
+INFORME-PROYECTO-PEVICO/*.bcf
+INFORME-PROYECTO-PEVICO/*.run.xml
+INFORME-PROYECTO-PEVICO/*.toc
+INFORME-PROYECTO-PEVICO/*.out
+INFORME-PROYECTO-PEVICO/*.blg
+INFORME-PROYECTO-PEVICO/*.bbl
+INFORME-PROYECTO-PEVICO/*.fdb_latexmk
+INFORME-PROYECTO-PEVICO/*.fls
+
+# Sistemas operativos
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
