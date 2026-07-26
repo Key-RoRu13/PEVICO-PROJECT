@@ -23,6 +23,9 @@ assets/models/*.task
 dataset/
 dataset_caracteristicas.csv
 
+# Informes y PDFs (para mantener el repositorio limpio)
+INFORME-PROYECTO-PEVICO/
+
 # Archivos de configuración local del editor
 .vscode/
 .idea/
@@ -31,19 +34,6 @@ dataset_caracteristicas.csv
 *.njsproj
 *.sln
 *.swp
-
-# Archivos temporales y compilados de LaTeX (para mantener el repositorio limpio)
-INFORME-PROYECTO-PEVICO/*.aux
-INFORME-PROYECTO-PEVICO/*.log
-INFORME-PROYECTO-PEVICO/*.synctex.gz
-INFORME-PROYECTO-PEVICO/*.bcf
-INFORME-PROYECTO-PEVICO/*.run.xml
-INFORME-PROYECTO-PEVICO/*.toc
-INFORME-PROYECTO-PEVICO/*.out
-INFORME-PROYECTO-PEVICO/*.blg
-INFORME-PROYECTO-PEVICO/*.bbl
-INFORME-PROYECTO-PEVICO/*.fdb_latexmk
-INFORME-PROYECTO-PEVICO/*.fls
 
 # Sistemas operativos
 Thumbs.db

@@ -37,7 +37,10 @@ void setup() {
   digitalWrite(PIN_LED_AMARILLO, LOW);
   digitalWrite(PIN_LED_ROJO, LOW);
   digitalWrite(PIN_BUZZER, LOW);
-  digitalWrite(PIN_RELE_FRENO, LOW);
+  
+  // El Relé 1 (Freno) es Active-Low -> HIGH significa apagado (desactivado)
+  digitalWrite(PIN_RELE_FRENO, HIGH);
+  // El Relé 2 (Luces) es Active-High -> LOW significa apagado (desactivado)
   digitalWrite(PIN_RELE_LUCES, LOW);
 
   // Iniciar la comunicación serial a 9600 baudios (coincide con config.py)
@@ -70,6 +73,10 @@ void loop() {
         digitalWrite(PIN_LED_ROJO, LOW);
         noTone(PIN_BUZZER);
         digitalWrite(PIN_BUZZER, LOW);
+        
+        // Apagar relés (Freno es Active-Low -> HIGH | Luces es Active-High -> LOW)
+        digitalWrite(PIN_RELE_FRENO, HIGH);
+        digitalWrite(PIN_RELE_LUCES, LOW);
         break;
 
       case 'W': // ADVERTENCIA (Bostezo / Distracción leve)
@@ -77,6 +84,10 @@ void loop() {
         digitalWrite(PIN_LED_VERDE, LOW);
         digitalWrite(PIN_LED_AMARILLO, HIGH);
         digitalWrite(PIN_LED_ROJO, LOW);
+        
+        // Encender relés (Freno es Active-Low -> LOW | Luces es Active-High -> HIGH)
+        digitalWrite(PIN_RELE_FRENO, LOW);
+        digitalWrite(PIN_RELE_LUCES, HIGH);
         break;
 
       case 'E': // EMERGENCIA (Microsueño / Cabeceo / Teléfono)
@@ -84,21 +95,25 @@ void loop() {
         digitalWrite(PIN_LED_VERDE, LOW);
         digitalWrite(PIN_LED_AMARILLO, LOW);
         digitalWrite(PIN_LED_ROJO, HIGH);
-        break;
-
-      case 'F': // Frenado de Emergencia activado
-        digitalWrite(PIN_RELE_FRENO, HIGH); 
-        break;
         
-      case 'f': // Frenado liberado
+        // Encender relés (Freno es Active-Low -> LOW | Luces es Active-High -> HIGH)
         digitalWrite(PIN_RELE_FRENO, LOW);
-        break;
-
-      case 'I': // Luces intermitentes activadas
         digitalWrite(PIN_RELE_LUCES, HIGH);
         break;
 
-      case 'i': // Luces intermitentes desactivadas
+      case 'F': // Control directo manual: Frenado de Emergencia activado
+        digitalWrite(PIN_RELE_FRENO, LOW); 
+        break;
+        
+      case 'f': // Control directo manual: Frenado liberado
+        digitalWrite(PIN_RELE_FRENO, HIGH);
+        break;
+
+      case 'I': // Control directo manual: Luces intermitentes activadas (Active-High -> HIGH)
+        digitalWrite(PIN_RELE_LUCES, HIGH);
+        break;
+
+      case 'i': // Control directo manual: Luces intermitentes desactivadas (Active-High -> LOW)
         digitalWrite(PIN_RELE_LUCES, LOW);
         break;
     }
